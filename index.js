@@ -5,6 +5,7 @@ const path = require('path')
 const ejs = require('ejs')
 const pino = require('pino')
 const pinoHttp = require('pino-http')
+const { urlencoded, json } = require('body-parser')
 
 module.exports = function main (options, cb) {
   // Set default options
@@ -52,7 +53,10 @@ module.exports = function main (options, cb) {
   // Common middleware
   // app.use(/* ... */)
   app.use(pinoHttp({ logger }))
-      
+  app.use(urlencoded({ extended: false }))
+  app.use(json())
+  app.use(express.static('public'))
+
   // Register routes
   // @NOTE: require here because this ensures that even syntax errors
   // or other startup related errors are caught logged and debuggable.
@@ -71,7 +75,7 @@ module.exports = function main (options, cb) {
     }
     res.locals.name = '0106_lab'
     res.locals.error = err
-    res.status(err.status || 500).render('error')
+    res.status(err.status || 500).render('error', {title: 'guestbook'})
   })
   
   // Start server

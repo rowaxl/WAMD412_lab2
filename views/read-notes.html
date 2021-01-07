@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1>Notes from others!</h1>
+
+  <div class="note-wrap">
+    <ul>
+      <% notes.forEach(note => { %>
+        <% const [text, time] = note %>
+        <li class="note">
+          <h3>
+            <%= text %>
+          </h3>
+          <p>
+            <%= time %>
+          </p>
+        </li>
+      <% })%>
+    </ul>
+  </div>
+</body>
+</html>
