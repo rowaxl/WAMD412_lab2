@@ -38,6 +38,7 @@ body {
   display: flex;
 }
 
+.links ul,
 .note-wrap ul {
   list-style: none;
   padding: 0;
