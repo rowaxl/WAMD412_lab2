@@ -1,6 +1,6 @@
 # Guestbook
 
-WAMD412 Node.js lab2
+WAMD412 Node.js lab 3
 
 ## Overview
 ![](overview.png)
